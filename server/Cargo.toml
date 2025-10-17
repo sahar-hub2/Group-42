@@ -1,0 +1,47 @@
+# GROUP: 42
+# MEMBERS: Ray Okamoto, Phoenix Pereira, Kayla Rowley, Qi Wu, Ho Yin Li
+
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.100"
+axum = { version = "0.8.4", features = ["ws"] }
+base64 = "0.22"
+chrono = { version = "0.4.42", features = ["serde"] }
+config = { version = "0.15.18", features = ["yaml"] }
+futures-util = "0.3.31"
+rand = "0.8.5"
+rsa = { version = "0.9.8", features = ["pem", "sha2"] }
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.143"
+serde_with = { version = "3.14.0", features = ["base64"] }
+sha2 = "0.10.9"
+thiserror = "2.0.16"
+tokio = { version = "1.47.1", features = ["macros", "rt-multi-thread"] }
+tower-http = { version = "0.5.2", features = ["cors"] }
+tokio-tungstenite = "0.23"
+tracing = "0.1.41"
+tracing-appender = "0.2.3"
+tracing-subscriber = { version = "0.3.20", features = [
+    "ansi",
+    "env-filter",
+    "fmt",
+    "registry",
+    "std",
+] }
+uuid = { version = "1.18.1", features = ["serde", "v4"] }
+
+secure_chat = { path = "../secure_chat" }
+
+[dev-dependencies]
+reqwest = "0.12.23"
+tempfile = "3.22.0"
+
+[profile.dev]
+opt-level = 2
+
+[profile.release]
+opt-level = 2

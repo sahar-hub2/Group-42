@@ -1,0 +1,16 @@
+# GROUP: 42
+# MEMBERS: Ray Okamoto, Phoenix Pereira, Kayla Rowley, Qi Wu, Ho Yin Li
+
+skip_bootstrap: true
+bootstrap_servers:
+  - host: "192.0.1.2" # introducer 1
+    port: 12345
+    pubkey: "BASE64URL(RSA-4096-PUB)" # pinned public key of this server
+
+  - host: "198.50.100.3" # introducer 2
+    port: 5432
+    pubkey: "BASE64URL(RSA-4096-PUB)"
+
+  - host: "203.0.113.21" # introducer 3
+    port: 1212
+    pubkey: "BASE64URL(RSA-4096-PUB)"
