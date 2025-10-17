@@ -1,0 +1,18 @@
+# GROUP: 42
+# MEMBERS: Ray Okamoto, Phoenix Pereira, Kayla Rowley, Qi Wu, Ho Yin Li
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server.dockerfile
+    container_name: server
+    ports:
+      - "3000:3000"
+    environment:
+      - RUST_LOG=info
+      - CONFIG_FILE=/app/server/config.yaml
+      - HOST=0.0.0.0
+    volumes:
+      - ./:/app
+      - ./server/config.yaml:/app/server/config.yaml

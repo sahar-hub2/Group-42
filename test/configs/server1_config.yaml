@@ -1,0 +1,7 @@
+# GROUP: 42
+# MEMBERS: Ray Okamoto, Phoenix Pereira, Kayla Rowley, Qi Wu, Ho Yin Li
+
+# Server 1
+# Standalone server (bootstrap server)
+skip_bootstrap: true
+bootstrap_servers: []

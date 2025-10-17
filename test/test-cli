@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# GROUP: 42
+# MEMBERS: Ray Okamoto, Phoenix Pereira, Kayla Rowley, Qi Wu, Ho Yin Li
+
+# Simple wrapper for the Python Testing CLI
+# This ensures the Python dependencies are available
+
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+# Check if venv exists
+VENV_DIR="$SCRIPT_DIR/.venv"
+
+if [ ! -d "$VENV_DIR" ]; then
+    echo "Setting up Python virtual environment..."
+    python3 -m venv "$VENV_DIR"
+    source "$VENV_DIR/bin/activate"
+    pip install -r "$SCRIPT_DIR/requirements.txt"
+else
+    source "$VENV_DIR/bin/activate"
+fi
+
+# Run the CLI with all arguments
+python3 "$SCRIPT_DIR/test_cli.py" "$@"
